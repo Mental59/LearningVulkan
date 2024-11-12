@@ -7,11 +7,10 @@ set_property(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR} PROPERTY VS_STARTUP_PROJECT $
 
 project(${PROJECT_NAME} VERSION 0.0.1)
 
-file(GLOB_RECURSE SRC_FILES src/*.cpp src/*.h src/*.hpp)
 file(GLOB_RECURSE SOURCES src/*.cpp)
 file(GLOB_RECURSE HEADERS src/*.hpp src/*.h)
 
-source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SRC_FILES})
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${SOURCES} ${HEADERS})
 
 add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
 
@@ -29,6 +28,5 @@ target_compile_definitions(${PROJECT_NAME} PRIVATE GLM_FORCE_RADIANS)
 target_compile_definitions(${PROJECT_NAME} PRIVATE GLM_FORCE_DEPTH_ZERO_TO_ONE)
 
 message("Output binary directory: ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}")
-message("SRC_FILES: ${SRC_FILES}")
 message("SOURCES: ${SOURCES}")
 message("HEADERS: ${HEADERS}")
